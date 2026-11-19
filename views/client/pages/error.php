@@ -1,0 +1,1 @@
+<section class="client-panel comm-empty" role="status"><strong><?=e($message??'This information is unavailable.')?></strong><p>Your private portal information could not be loaded. Please try again.</p><a class="client-button client-button-secondary" href="<?=e(\client_url('support'))?>">Back to Support</a></section>

@@ -1,0 +1,18 @@
+<?php $filters=$filters??[];$pagination=$pagination??['current_page'=>1,'total_records'=>0,'total_pages'=>1]; ?>
+<section class="admin-page-heading"><div><span class="admin-eyebrow">VIRTUAL ACCOUNT OPERATIONS</span><h1>Demo Accounts</h1><p>Review Demo Account status and virtual balances. Account list values are snapshots; full live metrics are calculated on each account detail page.</p></div><span class="admin-count-pill"><?= (int)$pagination['total_records'] ?> accounts</span></section>
+<section class="admin-panel admin-list-panel" data-admin-list>
+    <form class="admin-filter-form admin-account-filter-form" method="get" action="<?= e(admin_url('accounts')) ?>" data-admin-list-filters>
+        <label class="admin-search-field"><span>Search accounts</span><input type="search" name="search" value="<?= e($filters['search']??'') ?>" maxlength="100" placeholder="Account number, owner, email or user reference" autocomplete="off" data-list-search></label>
+        <label><span>Account status</span><select name="status"><option value="all">All statuses</option><?php foreach(['active','suspended','disabled','closed'] as $s): ?><option value="<?= e($s) ?>"<?= ($filters['status']??'all')===$s?' selected':'' ?>><?= e(ucwords($s)) ?></option><?php endforeach; ?></select></label>
+        <label><span>Account type</span><select name="type"><option value="all">All types</option><?php foreach(['standard'=>'Standard Demo','pro'=>'Pro Demo','ecn_demo'=>'ECN Demo'] as $v=>$label): ?><option value="<?= e($v) ?>"<?= ($filters['type']??'all')===$v?' selected':'' ?>><?= e($label) ?></option><?php endforeach; ?></select></label>
+        <label><span>Currency</span><select name="currency"><option value="">All currencies</option><?php foreach($currencies??[] as $currency): ?><option value="<?= e($currency) ?>"<?= ($filters['currency']??'')===$currency?' selected':'' ?>><?= e($currency) ?></option><?php endforeach; ?></select></label>
+        <label><span>Open positions</span><select name="positions"><option value="all">Any</option><option value="yes"<?= ($filters['positions']??'all')==='yes'?' selected':'' ?>>Has open positions</option><option value="no"<?= ($filters['positions']??'all')==='no'?' selected':'' ?>>No open positions</option></select></label>
+        <label><span>Created</span><select name="date"><option value="all"<?= ($filters['date']??'all')==='all'?' selected':'' ?>>All time</option><option value="today"<?= ($filters['date']??'')==='today'?' selected':'' ?>>Today</option><option value="7d"<?= ($filters['date']??'')==='7d'?' selected':'' ?>>Last 7 days</option><option value="30d"<?= ($filters['date']??'')==='30d'?' selected':'' ?>>Last 30 days</option></select></label>
+        <label><span>Rows per page</span><select name="per_page"><?php foreach([25,50,100] as $n): ?><option value="<?= $n ?>"<?= (int)($filters['per_page']??25)===$n?' selected':'' ?>><?= $n ?></option><?php endforeach; ?></select></label>
+        <input type="hidden" name="sort" value="<?= e($filters['sort']??'created') ?>"><input type="hidden" name="direction" value="<?= e(strtolower($filters['direction']??'DESC')) ?>"><input type="hidden" name="page" value="1">
+        <button class="admin-button admin-button-primary" type="submit">Apply filters</button><a class="admin-button admin-button-secondary" href="<?= e(admin_url('accounts')) ?>">Reset</a>
+    </form>
+    <div class="admin-list-feedback" role="status" aria-live="polite" data-list-message></div>
+    <div data-list-table><?php render('admin/accounts/table',['accounts'=>$accounts??[]]); ?></div>
+    <div data-list-pagination><?php render('admin/accounts/pagination',['pagination'=>$pagination]); ?></div>
+</section>

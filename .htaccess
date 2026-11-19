@@ -1,0 +1,21 @@
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # A relative substitution supports both /forex/ and a domain root; no RewriteBase is needed.
+    RewriteRule ^tools/(?:create-admin|reset-admin-password)\.(?:php|ps1)$ - [F,NC]
+    # Development and deployment utilities are CLI-only, even if a server configuration changes.
+    RewriteRule ^tools/.*\.(?:php|ps1)(?:/|$) - [F,NC]
+    RewriteRule ^(?:config|controllers|models|includes|services|views|storage|database)(?:/|$) - [F,NC]
+    RewriteRule ^uploads/kyc(?:/|$) - [F,NC]
+    RewriteRule ^(?:README\.md|\.env(?:\..*)?|composer\.(?:json|lock))$ - [F,NC]
+    RewriteRule ^(?:admin|client|api)/?$ index.php [QSA,L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+<FilesMatch "^(?:\.|.*\.(?:ini|log|sql|bak|dist))$">
+    Require all denied
+</FilesMatch>

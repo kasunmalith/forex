@@ -1,0 +1,3 @@
+<?php if(!empty($noindex))header('X-Robots-Tag: noindex, nofollow, noarchive'); require APP_ROOT . '/views/components/header.php'; ?>
+<article class="public-page cms-article-page"><div class="public-container"><nav class="public-breadcrumbs" aria-label="Breadcrumb"><a href="<?= e(site_url()) ?>">Home</a><span>/</span><span><?= e($page['title']) ?></span></nav><header class="cms-article-heading"><span class="public-eyebrow">MULTIFOREX</span><h1><?= e($page['title']) ?></h1></header><div class="cms-rich-content"><?= $safeContent ?></div></div></article>
+<?php require APP_ROOT . '/views/components/footer.php'; ?>

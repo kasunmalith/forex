@@ -1,0 +1,3 @@
+<?php require APP_ROOT . '/views/components/header.php'; ?>
+<div class="auth-page client-welcome-page"><div class="auth-wrap auth-wrap-narrow"><section class="client-welcome-card"><span class="public-eyebrow">PROTECTED DEMO AREA</span><h1>This section is coming later.</h1><p><?= e(ucfirst((string)$requestedSection)) ?> is reserved for a future portal phase. Your account is signed in, but this feature is not available yet.</p><a class="btn btn-primary auth-link-button" href="<?= e(site_url('client')) ?>">Return to your account <span aria-hidden="true">↗</span></a></section></div></div>
+<?php require APP_ROOT . '/views/components/footer.php'; ?>

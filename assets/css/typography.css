@@ -1,0 +1,23 @@
+html { font-family: var(--font-sans); font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+body { font-size: 1rem; line-height: 1.65; }
+h1, h2, h3, h4, p { margin-top: 0; }
+h1, h2, h3, h4 { color: var(--color-heading); line-height: 1.15; letter-spacing: -0.035em; }
+h1 { font-size: clamp(2.35rem, 5.6vw, 5.15rem); font-weight: 620; }
+h2 { font-size: clamp(1.8rem, 3.4vw, 3.1rem); font-weight: 600; }
+h3 { font-size: clamp(1.25rem, 2vw, 1.65rem); font-weight: 590; }
+h4 { font-size: 1.06rem; font-weight: 600; }
+p { color: var(--color-text-muted); }
+.display-heading { max-width: 900px; font-size: clamp(2.75rem, 7.2vw, 6.15rem); line-height: .99; font-weight: 610; letter-spacing: -.065em; }
+.body-large { font-size: clamp(1.05rem, 1.5vw, 1.24rem); line-height: 1.75; }
+.body-small { font-size: .9rem; line-height: 1.6; }
+.caption { font-size: .78rem; line-height: 1.45; color: var(--color-text-muted); }
+.label, label { display: block; font-size: .88rem; font-weight: 580; color: var(--color-text); }
+.eyebrow { color: var(--color-primary); font-size: .72rem; font-weight: 700; letter-spacing: .17em; line-height: 1.4; text-transform: uppercase; }
+.financial-number, .market-symbol, .price, .change, .account-number { font-variant-numeric: tabular-nums lining-nums; font-feature-settings: "tnum" 1, "lnum" 1; }
+.financial-number, .price { font-family: var(--font-mono); letter-spacing: -.025em; }
+.market-symbol { font-weight: 680; letter-spacing: .035em; }
+.text-positive { color: var(--color-success) !important; }
+.text-negative { color: var(--color-danger) !important; }
+.text-neutral { color: var(--color-text-muted) !important; }
+code, pre { font-family: var(--font-mono); }
+a { color: inherit; text-decoration-thickness: .07em; text-underline-offset: .2em; }

@@ -1,0 +1,31 @@
+<?php
+require APP_ROOT . '/views/components/header.php';
+$old = $old ?? [];
+$errors = $errors ?? [];
+$fieldError = static fn(string $key): string => isset($errors[$key]) ? ' aria-invalid="true" aria-describedby="error-' . e($key) . '"' : '';
+?>
+<div class="auth-page"><div class="auth-wrap"><nav class="public-breadcrumbs" aria-label="Breadcrumb"><a href="<?= e(site_url()) ?>">Home</a><span>/</span><span aria-current="page">Create a demo account</span></nav>
+    <section class="auth-layout"><div class="auth-intro"><span class="public-eyebrow"><i></i> DEMO ACCESS · NO REAL FUNDS</span><h1>Start with a<br><em>clear view.</em></h1><p>Create your demo profile to explore the platform with virtual funds and seeded market examples.</p><div class="auth-visual" aria-hidden="true"><span class="auth-visual-tag">DEMO ACCOUNT / 01</span><div class="auth-visual-mark">V</div><div class="auth-visual-line"></div><span class="auth-visual-foot">SIMULATED · RESPONSIVE WEB</span></div><div class="auth-proof"><span>01</span><p>One demo account with a virtual balance from the current site configuration.</p></div></div>
+    <div class="auth-card"><div class="auth-card-heading"><span class="public-eyebrow">CREATE YOUR PROFILE</span><h2>Open Demo Account</h2><p>Complete the fields below to get started.</p></div>
+        <?php if (!empty($errors['_form'])): ?><div class="auth-alert is-error" role="alert"><?= e($errors['_form']) ?></div><?php endif; ?>
+        <?php if (!empty($error)): ?><div class="auth-alert is-error" role="alert"><?= e($error) ?></div><?php endif; ?>
+        <form class="auth-form" method="post" action="<?= e(site_url('register')) ?>" data-auth-form>
+            <?= csrf_field() ?>
+            <div class="auth-form-grid">
+                <label class="auth-field"><span>First name</span><input name="first_name" type="text" maxlength="100" autocomplete="given-name" value="<?= e($old['first_name'] ?? '') ?>" required<?= $fieldError('first_name') ?>><?php if(isset($errors['first_name'])): ?><small class="auth-field-error" id="error-first_name"><?= e($errors['first_name']) ?></small><?php endif; ?></label>
+                <label class="auth-field"><span>Last name</span><input name="last_name" type="text" maxlength="100" autocomplete="family-name" value="<?= e($old['last_name'] ?? '') ?>" required<?= $fieldError('last_name') ?>><?php if(isset($errors['last_name'])): ?><small class="auth-field-error" id="error-last_name"><?= e($errors['last_name']) ?></small><?php endif; ?></label>
+                <label class="auth-field auth-field-wide"><span>Email address</span><input name="email" type="email" maxlength="254" autocomplete="email" value="<?= e($old['email'] ?? '') ?>" required<?= $fieldError('email') ?>><?php if(isset($errors['email'])): ?><small class="auth-field-error" id="error-email"><?= e($errors['email']) ?></small><?php endif; ?></label>
+                <label class="auth-field"><span>Phone <i>Optional</i></span><input name="phone" type="tel" maxlength="40" autocomplete="tel" value="<?= e($old['phone'] ?? '') ?>"<?= $fieldError('phone') ?>><?php if(isset($errors['phone'])): ?><small class="auth-field-error" id="error-phone"><?= e($errors['phone']) ?></small><?php endif; ?></label>
+                <label class="auth-field"><span>Country code <i>Optional</i></span><input name="country" type="text" maxlength="2" minlength="2" pattern="[A-Za-z]{2}" autocomplete="country" placeholder="LK" value="<?= e($old['country'] ?? '') ?>" aria-describedby="country-hint"<?= $fieldError('country') ?>><small class="auth-field-hint" id="country-hint">Two-letter code, for example LK.</small><?php if(isset($errors['country'])): ?><small class="auth-field-error" id="error-country"><?= e($errors['country']) ?></small><?php endif; ?></label>
+                <label class="auth-field auth-field-wide"><span>Password</span><span class="auth-password-wrap"><input id="register-password" name="password" type="password" minlength="10" maxlength="128" autocomplete="new-password" required aria-describedby="password-hint"<?= $fieldError('password') ?>><button class="auth-password-toggle" type="button" data-password-toggle="register-password" aria-label="Show password" aria-pressed="false">Show</button></span><small class="auth-field-hint" id="password-hint">Use at least 10 characters. A mix of letter cases, numbers and symbols is recommended.</small><?php if(isset($errors['password'])): ?><small class="auth-field-error" id="error-password"><?= e($errors['password']) ?></small><?php endif; ?></label>
+                <label class="auth-field auth-field-wide"><span>Confirm password</span><span class="auth-password-wrap"><input id="register-password-confirm" name="password_confirmation" type="password" minlength="10" maxlength="128" autocomplete="new-password" required<?= $fieldError('password_confirmation') ?>><button class="auth-password-toggle" type="button" data-password-toggle="register-password-confirm" aria-label="Show password" aria-pressed="false">Show</button></span><?php if(isset($errors['password_confirmation'])): ?><small class="auth-field-error" id="error-password_confirmation"><?= e($errors['password_confirmation']) ?></small><?php endif; ?></label>
+            </div>
+            <label class="auth-check"><input type="checkbox" name="demo_acknowledgement" value="1" required<?= isset($errors['demo_acknowledgement']) ? ' aria-invalid="true" aria-describedby="error-demo_acknowledgement"' : '' ?>><span>I understand this is a demo trading environment and no real funds are used.</span></label>
+            <?php if(isset($errors['demo_acknowledgement'])): ?><small class="auth-field-error auth-check-error" id="error-demo_acknowledgement"><?= e($errors['demo_acknowledgement']) ?></small><?php endif; ?>
+            <button class="btn btn-primary auth-submit" type="submit" data-submit-label="Create Demo Account">Create Demo Account <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="auth-switch">Already have an account? <a href="<?= e(site_url('login')) ?>">Sign in</a></p>
+        <p class="auth-privacy">By creating an account, your details are stored to provide access to this demo environment. No email verification is required in this phase.</p>
+    </div></section>
+</div>
+<?php require APP_ROOT . '/views/components/footer.php'; ?>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Demo trading platform preview</title>
+  <desc id="desc">An original abstract chart illustration for a simulated global markets platform.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#10283b"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#78d1cf" stop-opacity=".1"/><stop offset="1" stop-color="#78d1cf" stop-opacity=".95"/></linearGradient>
+    <pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse"><path d="M72 0H0V72" fill="none" stroke="#d8edf7" stroke-opacity=".08"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="1030" cy="85" r="300" fill="#78d1cf" opacity=".055"/><circle cx="1060" cy="520" r="280" fill="#83aee7" opacity=".06"/>
+  <text x="92" y="114" fill="#78d1cf" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="5">SIMULATED TRADING ENVIRONMENT</text>
+  <text x="88" y="260" fill="#f6f9fc" font-family="Arial,sans-serif" font-size="68" font-weight="700">Global markets.</text>
+  <text x="88" y="342" fill="#f6f9fc" font-family="Arial,sans-serif" font-size="68" font-weight="700">Modern technology.</text>
+  <text x="92" y="405" fill="#a9bac9" font-family="Arial,sans-serif" font-size="25">A responsive demo platform preview · No real funds</text>
+  <rect x="612" y="442" width="500" height="1" fill="#d8edf7" opacity=".14"/><rect x="612" y="492" width="500" height="1" fill="#d8edf7" opacity=".14"/><rect x="612" y="542" width="500" height="1" fill="#d8edf7" opacity=".14"/>
+  <path d="M612 500 C650 480 670 505 705 463 S756 478 787 442 S834 461 866 417 S915 437 943 390 S990 410 1016 365 S1061 389 1112 322" fill="none" stroke="url(#line)" stroke-width="5" stroke-linecap="round"/>
+  <text x="92" y="565" fill="#78d1cf" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="3">DEMO MARKET DATA · STATIC SEED VALUES</text>
+</svg>

@@ -1,0 +1,58 @@
+@media (max-width: 1190px) {
+  .desktop-navigation { gap: 0; }
+  .nav-link, .nav-dropdown-toggle { padding-inline: .42rem; font-size: .8rem; }
+  .header-actions .btn { padding-inline: .72rem; font-size: .82rem; }
+  .footer-main { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .footer-brand { grid-column: span 2; }
+}
+@media (max-width: 1080px) {
+  .desktop-navigation, .header-actions { display: none; }
+  .menu-toggle { display: grid; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(270px, .8fr); gap: 2.5rem; }
+  .swatch-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  :root { --header-height: 70px; }
+  .header-utility-inner { min-height: 31px; font-size: .68rem; }
+  .header-utility-inner > span:last-child { display: none; }
+  .header-main-inner { min-height: var(--header-height); }
+  .brand { font-size: .96rem; }
+  .brand-mark { width: 34px; height: 34px; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { max-width: 580px; }
+  .hero { padding-block: 4rem; }
+  .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .section-heading { display: block; }
+  .section-heading-action { margin-top: 1rem; }
+  .footer-main { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .footer-brand { grid-column: 1 / -1; }
+  .design-page-header { display: block; }
+}
+@media (max-width: 560px) {
+  .main-content { overflow: clip; }
+  .grid-2, .grid-3, .grid-4, .form-grid { grid-template-columns: 1fr; }
+  .form-field.is-full { grid-column: auto; }
+  .swatch-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 1rem; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-bottom { align-items: start; flex-direction: column; justify-content: center; padding-block: 1rem; }
+  .footer-legal { gap: .55rem 1rem; }
+  .hero-actions .btn { flex: 1 1 100%; }
+  .market-card-bottom { align-items: start; flex-direction: column; gap: .35rem; }
+  .chart-placeholder { min-height: 220px; }
+  .modal-actions { flex-direction: column-reverse; }
+  .modal-actions .btn { width: 100%; }
+  .pagination a, .pagination span { min-width: 38px; min-height: 40px; }
+  .table-wrap { border-radius: 8px; }
+}
+@media (max-width: 360px) {
+  .container, .container-wide, .container-narrow { width: calc(100% - 2rem); }
+  .header-utility-inner, .header-main-inner { width: calc(100% - 2rem); }
+  .mobile-menu-inner { padding: 1rem; }
+  .design-page { padding-top: 1.7rem; }
+  .btn-lg { min-height: 50px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

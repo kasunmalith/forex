@@ -1,0 +1,6 @@
+<?php $chartHeight = max(150, min(450, (int) ($height ?? 240))); ?>
+<div class="chart-placeholder" style="min-height:<?= $chartHeight ?>px" role="img" aria-label="Static illustrative chart placeholder, not market data">
+    <div class="chart-header"><div><span class="market-symbol">EURUSD</span><div class="caption">Illustrative chart placeholder</div></div><span class="badge badge-demo">DEMO</span></div>
+    <div class="chart-toolbar" aria-hidden="true"><span>1D</span><span>1W</span><span>1M</span><span>1Y</span></div>
+    <div class="chart-canvas" aria-hidden="true"><svg viewBox="0 0 600 170" preserveAspectRatio="none"><defs><linearGradient id="chart-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#78d1cf" stop-opacity=".2"/><stop offset="1" stop-color="#78d1cf" stop-opacity="0"/></linearGradient></defs><path d="M0 126 C42 118 46 92 88 103 S136 130 170 96 S219 87 253 101 S301 55 339 72 S389 88 421 49 S466 76 501 54 S553 60 600 20 V170 H0Z" fill="url(#chart-fill)"/><path d="M0 126 C42 118 46 92 88 103 S136 130 170 96 S219 87 253 101 S301 55 339 72 S389 88 421 49 S466 76 501 54 S553 60 600 20" fill="none" stroke="#78d1cf" stroke-width="2.4" vector-effect="non-scaling-stroke"/></svg></div>
+</div>
