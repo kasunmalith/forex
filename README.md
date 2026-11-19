@@ -1,3 +1,5 @@
+![MultiForex project cover](docs/readme-banner.svg)
+
 <div align="center">
   <h1>MultiForex Demo Platform</h1>
   <p><strong>A paper-trading environment for Forex and CFD workflows.</strong></p>
